@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { donationsAPI } from '../services/api';
 import './Home.css';
 
 const Home = () => {
+  const [stats, setStats] = useState({
+    totalAmount: 0,
+    totalDonors: 0
+  });
+
+  useEffect(() => {
+    fetchStats();
+  }, []);
+
+  const fetchStats = async () => {
+    try {
+      const response = await donationsAPI.getStats();
+      setStats({
+        totalAmount: response.data.totalAmount || 0,
+        totalDonors: response.data.totalDonors || 0
+      });
+    } catch (err) {
+      console.error('Failed to fetch stats:', err);
+    }
+  };
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -32,19 +54,19 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Impact Stats */}
+      {/* Impact Stats - NOW DYNAMIC */}
       <section className="stats">
         <div className="stat-card">
-          <div className="stat-number">$250K+</div>
+          <div className="stat-number">${stats.totalAmount.toLocaleString()}</div>
           <div className="stat-label">Total Donations</div>
         </div>
         <div className="stat-card">
-          <div className="stat-number">5,000+</div>
+          <div className="stat-number">{stats.totalDonors}</div>
           <div className="stat-label">Donors</div>
         </div>
         <div className="stat-card">
-          <div className="stat-number">15</div>
-          <div className="stat-label">Countries Helped</div>
+          <div className="stat-number">3</div>
+          <div className="stat-label">Active Causes</div>
         </div>
       </section>
 

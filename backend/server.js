@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/categories', require('./routes/categories'));
 app.use('/api/donations', require('./routes/donations'));
+app.use('/api/payment', require('./routes/payment'));
 
 // Start server
 const PORT = process.env.PORT || 5000;
