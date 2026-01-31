@@ -16,7 +16,7 @@ const CategoryCard = ({ category }) => {
         <div className="category-stats">
           <div className="stat">
             <span className="stat-label">Total Raised</span>
-            <span className="stat-value">${category.totalDonations || 0}</span>
+            <span className="stat-value">Rs. {category.totalDonations || 0}</span>
           </div>
         </div>
         

@@ -138,7 +138,7 @@ const AdminDashboard = () => {
               <div className="admin-stat-card">
                 <div className="stat-icon">💵</div>
                 <div className="stat-content">
-                  <div className="stat-value">${stats?.totalAmount || 0}</div>
+                  <div className="stat-value">Rs. {stats?.totalAmount || 0}</div>
                   <div className="stat-label">Total Revenue</div>
                 </div>
               </div>
@@ -188,7 +188,7 @@ const AdminDashboard = () => {
                       <div className="category-stat-info">
                         <h3>{cat.name}</h3>
                         <div className="category-stat-details">
-                          <span className="stat-amount">${catTotal}</span>
+                          <span className="stat-amount">Rs. {catTotal}</span>
                           <span className="stat-count">
                             {catDonations.length} donations
                           </span>
@@ -220,7 +220,7 @@ const AdminDashboard = () => {
                         <td>{formatDate(donation.createdAt)}</td>
                         <td>{donation.user?.name || 'Unknown'}</td>
                         <td>{donation.category?.name || 'Unknown'}</td>
-                        <td className="amount">${donation.amount}</td>
+                        <td className="amount">Rs. {donation.amount}</td>
                         <td>
                           <span className={`status status-${donation.status}`}>
                             {donation.status}
@@ -260,7 +260,7 @@ const AdminDashboard = () => {
                       <td>{donation.user?.name || 'Unknown'}</td>
                       <td>{donation.user?.email || 'Unknown'}</td>
                       <td>{donation.category?.name || 'Unknown'}</td>
-                      <td className="amount">${donation.amount}</td>
+                      <td className="amount">Rs. {donation.amount}</td>
                       <td className="message">
                         {donation.message || <em>No message</em>}
                       </td>
@@ -353,7 +353,7 @@ const AdminDashboard = () => {
                     <h3>{category.name}</h3>
                     <p>{category.description}</p>
                     <div className="category-meta">
-                      <span>💰 ${category.totalDonations || 0} raised</span>
+                      <span>💰 Rs. {category.totalDonations || 0} raised</span>
                       <span>
                         📊{' '}
                         {donations.filter(d => d.category?._id === category._id).length}{' '}

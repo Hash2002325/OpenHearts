@@ -104,7 +104,7 @@ const PaymentForm = ({ category, amount, message, onSuccess }) => {
         className="btn btn-primary btn-block"
         disabled={!stripe || processing}
       >
-        {processing ? 'Processing...' : `Donate $${amount || '0'}`}
+        {processing ? 'Processing...' : `Donate Rs. ${amount || '0'}`}
       </button>
 
       <p className="test-card-info">
@@ -174,7 +174,7 @@ const DonatePage = () => {
             <p>{category.description}</p>
             <div className="total-raised">
               <span>Total Raised:</span>
-              <strong>${category.totalDonations || 0}</strong>
+             <strong>Rs. {category.totalDonations || 0}</strong>
             </div>
           </div>
 
@@ -186,7 +186,7 @@ const DonatePage = () => {
             </p>
 
             <div className="form-group">
-              <label>Donation Amount ($)</label>
+            <label>Donation Amount (Rs.)</label>
               <input
                 type="number"
                 value={amount}
@@ -198,37 +198,38 @@ const DonatePage = () => {
               />
             </div>
 
-            {/* Quick amount buttons */}
-            <div className="quick-amounts">
-              <button
-                type="button"
-                onClick={() => setAmount('10')}
-                className="quick-amount-btn"
-              >
-                $10
-              </button>
-              <button
-                type="button"
-                onClick={() => setAmount('25')}
-                className="quick-amount-btn"
-              >
-                $25
-              </button>
-              <button
-                type="button"
-                onClick={() => setAmount('50')}
-                className="quick-amount-btn"
-              >
-                $50
-              </button>
-              <button
-                type="button"
-                onClick={() => setAmount('100')}
-                className="quick-amount-btn"
-              >
-                $100
-              </button>
-            </div>
+           
+       {/* Quick amount buttons */}
+<div className="quick-amounts">
+  <button
+    type="button"
+    onClick={() => setAmount('500')}
+    className="quick-amount-btn"
+  >
+    Rs. 500
+  </button>
+  <button
+    type="button"
+    onClick={() => setAmount('1000')}
+    className="quick-amount-btn"
+  >
+    Rs. 1,000
+  </button>
+  <button
+    type="button"
+    onClick={() => setAmount('5000')}
+    className="quick-amount-btn"
+  >
+    Rs. 5,000
+  </button>
+  <button
+    type="button"
+    onClick={() => setAmount('10000')}
+    className="quick-amount-btn"
+  >
+    Rs. 10,000
+  </button>
+</div>
 
             <div className="form-group">
               <label>Message (Optional)</label>

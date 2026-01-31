@@ -17,14 +17,15 @@ router.post('/create-payment-intent', protect, async (req, res) => {
 
     // Create payment intent
     // Amount should be in cents (multiply by 100)
+    
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: Math.round(amount * 100), // Convert dollars to cents
-      currency: 'usd',
-      metadata: {
-        userId: req.user._id.toString(),
-        userName: req.user.name
-      }
-    });
+  amount: Math.round(amount * 100), // Convert rupees to cents
+  currency: 'lkr', // ← CHANGED FROM 'usd' to 'lkr'
+  metadata: {
+    userId: req.user._id.toString(),
+    userName: req.user.name
+  }
+});
 
     res.json({
       clientSecret: paymentIntent.client_secret,

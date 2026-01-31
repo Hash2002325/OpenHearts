@@ -61,7 +61,7 @@ const Dashboard = () => {
           <div className="stat-card">
             <div className="stat-icon">💰</div>
             <div className="stat-content">
-              <div className="stat-value">${calculateTotal()}</div>
+              <div className="stat-value">Rs. {calculateTotal()}</div>
               <div className="stat-label">Total Donated</div>
             </div>
           </div>
@@ -115,7 +115,7 @@ const Dashboard = () => {
                       <td>
                         <strong>{donation.category?.name || 'Unknown'}</strong>
                       </td>
-                      <td className="amount">${donation.amount}</td>
+                      <td className="amount">Rs. {donation.amount}</td>
                       <td className="message">
                         {donation.message || <em>No message</em>}
                       </td>
