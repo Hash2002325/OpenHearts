@@ -127,8 +127,9 @@ const DonatePage = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchCategory();
-  }, [categoryId]);
+  fetchCategory();
+  // eslint-disable-next-line react-hooks/exhaustive-deps  ← ADD THIS LINE!
+}, [categoryId]);
 
   const fetchCategory = async () => {
     try {

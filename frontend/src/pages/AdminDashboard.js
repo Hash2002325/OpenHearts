@@ -24,14 +24,15 @@ const AdminDashboard = () => {
   });
 
   useEffect(() => {
-    // Check if user is admin
-    if (!isAdmin()) {
-      navigate('/');
-      return;
-    }
+  // Check if user is admin
+  if (!isAdmin()) {
+    navigate('/');
+    return;
+  }
 
-    fetchData();
-  }, []);
+  fetchData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps  ← ADD THIS LINE!
+}, []);
 
   const fetchData = async () => {
     try {
